@@ -1,12 +1,14 @@
-public class BogoSort {
+import java.util.Random;
 
-    private int[] listOfItems;
+public class BogoSort<T extends Comparable<T>> {
 
-    public BogoSort(int[] listOfItems) {
+    private T[] listOfItems;
+
+    public BogoSort(T[] listOfItems) {
         this.listOfItems = listOfItems;
     }
 
-    public int[] sort() {
+    public T[] sort() {
         while (!isSorted()){
             shuffle();
         }
@@ -16,7 +18,7 @@ public class BogoSort {
     public void shuffle() {
         for(int i = listOfItems.length-1; i >=0; i--){
             int j = (int) (Math.random() * i);
-            int temp = listOfItems[i];
+            T temp = listOfItems[i];
             listOfItems[i] = listOfItems[j];
             listOfItems[j] = temp;
         }
@@ -24,7 +26,7 @@ public class BogoSort {
 
     public boolean isSorted() {
         for (int i = 0; i < listOfItems.length-1; i++){
-            if(listOfItems[i] > (listOfItems[i+1]) ){
+            if(listOfItems[i].compareTo(listOfItems[i+1]) >0 ){
                 return false;
             }
         }
@@ -32,8 +34,8 @@ public class BogoSort {
     }
 
 
-    public void showArray(int[] listOfItems) {
-        for (int i : listOfItems) {
+    public void showArray(T[] listOfItems) {
+        for (T i : listOfItems) {
             System.out.print(i + " ");
         }
     }
