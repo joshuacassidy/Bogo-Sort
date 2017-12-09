@@ -17,7 +17,7 @@ public class BogoSort<T extends Comparable<T>> {
 
     public void shuffle() {
         for(int i = listOfItems.length-1; i >=0; i--){
-            int j = (int) (Math.random() * i);
+            int j = new Random().nextInt(i+1);
             T temp = listOfItems[i];
             listOfItems[i] = listOfItems[j];
             listOfItems[j] = temp;
