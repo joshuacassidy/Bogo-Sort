@@ -36,7 +36,7 @@ public class BogoSort<T extends Comparable<T>> {
 
     public void showArray(T[] listOfItems) {
         for (T i : listOfItems) {
-            System.out.print(i + " ");
+            System.out.printf("%d ",i);
         }
     }
 
